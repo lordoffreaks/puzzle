@@ -1,0 +1,29 @@
+{
+  "name": "lordoffreaks/puzzle",
+  "description": "Simple static sites with Laravel's Blade + Grunt + REST server.",
+  "keywords": ["blade", "laravel", "static", "site", "generator", "grunt", "REST"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Alejandro Tabares",
+      "email": "alex311es@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Puzzle\\": "src/"
+    }
+  },
+  "require": {
+    "ext-intl": "*",
+    "jigsaw/jigsaw": "^0.4.1",
+    "league/route": "^1.2",
+    "monolog/monolog": "^1.17",
+    "respect/validation": "^1.0",
+    "swiftmailer/swiftmailer": "^5.4",
+    "voku/anti-xss": "^1.2"
+  },
+  "bin": [
+    "puzzle"
+  ]
+}
