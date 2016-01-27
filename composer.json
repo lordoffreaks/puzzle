@@ -2,6 +2,7 @@
   "name": "lordoffreaks/puzzle",
   "description": "Simple static sites with Laravel's Blade + Grunt + REST server.",
   "keywords": ["blade", "laravel", "static", "site", "generator", "grunt", "REST"],
+  "homepage": "http://github.com/lordoffreaks/puzzle",
   "license": "MIT",
   "authors": [
     {
@@ -15,7 +16,7 @@
     }
   },
   "require": {
-    "ext-intl": "*",
+    "php": ">=5.4.0",
     "jigsaw/jigsaw": "^0.4.1",
     "league/route": "^1.2",
     "monolog/monolog": "^1.17",

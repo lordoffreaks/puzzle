@@ -25,7 +25,7 @@ module.exports = function (grunt) {
 
     exec: {
       jigsaw_build: {
-        cmd: '../puzzle build'
+        cmd: './vendor/bin/puzzle build'
       }
     },
 
