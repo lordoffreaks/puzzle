@@ -10,12 +10,40 @@ module.exports = function (grunt) {
     useminPrepare: 'grunt-usemin'
   });
 
+  var globule = require('globule');
+
   // Configurable paths
   var config = {
     app: 'source',
     local: 'build_local',
     dist: 'www'
   };
+
+  var symlink_files = globule.find("*.blade.php", {
+    filter: function(filepath, options) {
+      return filepath !== options.srcBase + '/index.blade.php';
+    },
+    srcBase: config.app
+  });
+
+  config.symlink_files = symlink_files.map(function(filepath){
+    var name = filepath.replace('.blade.php', '');
+    return {
+      expand: true,
+      overwrite: false,
+      cwd: '<%= config.dist %>',
+      src: ['css', 'js'],
+      dest: '<%= config.dist %>/' + name,
+      filter: 'isDirectory'
+    }
+  });
+
+  config.useminPrepareFiles = globule.find("*.blade.php", {
+    srcBase: config.app
+  })
+      .map(function(filepath){
+        return '<%= config.local %>/' + filepath.replace('blade.php', 'html');
+      });
 
   // Define the configuration for all the tasks
   grunt.initConfig({
@@ -31,24 +59,7 @@ module.exports = function (grunt) {
 
     symlink: {
       expanded: {
-        files: [
-          {
-            expand: true,
-            overwrite: false,
-            cwd: '<%= config.dist %>',
-            src: ['css', 'js'],
-            dest: '<%= config.dist %>/about-us',
-            filter: 'isDirectory'
-          },
-          {
-            expand: true,
-            overwrite: false,
-            cwd: '<%= config.dist %>',
-            src: ['css', 'js'],
-            dest: '<%= config.dist %>/contact-us',
-            filter: 'isDirectory'
-          }
-        ]
+        files: config.symlink_files
       }
     },
 
@@ -196,11 +207,7 @@ module.exports = function (grunt) {
         dest: '<%= config.dist %>'
       },
       pages: {
-        src: [
-          '<%= config.local %>/index.html',
-          '<%= config.local %>/about-us/index.html',
-          '<%= config.local %>/contact-us/index.html'
-        ]
+        src: config.useminPrepareFiles
       }
     },
 
