@@ -46,5 +46,6 @@ class InitCommand extends Command
     private function scaffoldSite()
     {
         $this->files->copyDirectory(__DIR__ . '/../../site', $this->base);
+        $this->files->copyDirectory(__DIR__ . '/../../includes', $this->base . '/includes');
     }
 }
