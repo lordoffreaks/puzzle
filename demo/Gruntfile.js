@@ -111,7 +111,7 @@ module.exports = function (grunt) {
       livereload: {
         options: {
           open: true,
-          proxy: "www2.puzzle-site.com",
+          proxy: "www2.puzzle-demo.com",
           files: [
             '<%= config.local %>/{,*/}*.html',
             '<%= config.local %>/css/*.css',
@@ -125,7 +125,7 @@ module.exports = function (grunt) {
       dist: {
         options: {
           open: true,
-          proxy: "www2.puzzle-site-dist.com"
+          proxy: "www2.puzzle-demo-dist.com"
         }
       }
     },

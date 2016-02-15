@@ -1,0 +1,5 @@
+{
+    "require": {
+        "lordoffreaks/puzzle": "0.3.*"
+    }
+}

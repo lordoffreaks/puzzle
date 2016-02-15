@@ -15,9 +15,12 @@ use Jigsaw\Jigsaw\Handlers\DefaultHandler;
 use Jigsaw\Jigsaw\Jigsaw;
 
 use Puzzle\Console\InitCommand;
+use Puzzle\Console\DemoCommand;
 
 if (file_exists(__DIR__.'/vendor/autoload.php')) {
     require __DIR__.'/vendor/autoload.php';
+} elseif(file_exists(dirname(dirname(__DIR__)) .'/vendor/autoload.php')) {
+    require dirname(dirname(__DIR__)) .'/vendor/autoload.php';
 } else {
     require __DIR__.'/../../autoload.php';
 }
@@ -51,7 +54,8 @@ $jigsaw->registerHandler($container[DefaultHandler::class]);
 
 $buildCommand = new BuildCommand($jigsaw, $sourcePath, $buildPath);
 
-$app = new Symfony\Component\Console\Application('Puzzle', '0.1.0');
+$app = new Symfony\Component\Console\Application('Puzzle', '0.3.1');
 $app->add($buildCommand);
 $app->add($container[InitCommand::class]);
+$app->add($container[DemoCommand::class]);
 $app->run();
