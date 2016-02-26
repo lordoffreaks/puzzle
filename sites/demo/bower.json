@@ -1,0 +1,34 @@
+{
+  "name": "puzzle-demo",
+  "private": true,
+  "dependencies": {
+    "bootstrap-sass": "~3.3.5",
+    "font-awesome": "~4.3.0",
+    "formValidation": "cyclone-formvalidation#~0.6.1",
+    "Hover": "~2.0.2",
+    "jquery.easing": "~1.3.1",
+    "modernizr": "~2.8.3",
+    "scrollup": "^2.4.1"
+  },
+  "overrides": {
+    "bootstrap-sass": {
+      "main": [
+        "assets/stylesheets/_bootstrap.scss",
+        "assets/fonts/bootstrap/*",
+        "assets/javascripts/bootstrap.js"
+      ]
+    },
+    "font-awesome": {
+      "main": [
+        "scss/font-awesome.scss",
+        "scss/font-awesome/fonts/*"
+      ]
+    },
+    "Hover": {
+      "main": [
+        "scss/hover.scss"
+      ]
+    }
+  },
+  "devDependencies": {}
+}

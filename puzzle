@@ -57,5 +57,4 @@ $buildCommand = new BuildCommand($jigsaw, $sourcePath, $buildPath);
 $app = new Symfony\Component\Console\Application('Puzzle', '0.3.1');
 $app->add($buildCommand);
 $app->add($container[InitCommand::class]);
-$app->add($container[DemoCommand::class]);
 $app->run();

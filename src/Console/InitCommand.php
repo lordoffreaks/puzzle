@@ -13,11 +13,14 @@ class InitCommand extends Command
 {
     private $files;
     private $base;
+    private $sites;
 
     public function __construct(Filesystem $files)
     {
         $this->files = $files;
         $this->base = getcwd();
+        $this->sites = dirname(dirname(__DIR__)) . '/sites';
+
         parent::__construct();
     }
 
@@ -27,6 +30,11 @@ class InitCommand extends Command
             ->setDescription('Scaffold a new Puzzle project.')
             ->addArgument(
                 'name',
+                InputArgument::REQUIRED,
+                'What project should we initialize?'
+            )
+            ->addArgument(
+                'destination',
                 InputArgument::OPTIONAL,
                 'Where should we initialize this project?'
             );
@@ -34,18 +42,26 @@ class InitCommand extends Command
 
     protected function fire()
     {
-        if ($base = $this->input->getArgument('name')) {
+        if ($base = $this->input->getArgument('destination')) {
             $this->base .= '/' . $base;
         }
 
-        $this->scaffoldSite();
+        $name = $this->input->getArgument('name');
+        $site = $this->sites . '/' . $name;
 
-        $this->info('Site initialized successfully!');
+        if (file_exists($site) && is_dir($site)) {
+            $this->scaffoldSite($name);
+            $this->info('Site initialized successfully!');
+        }
+        else {
+            $this->error("The site $name doesn't exist.");
+        }
+
     }
 
-    private function scaffoldSite()
+    private function scaffoldSite($name)
     {
-        $this->files->copyDirectory(__DIR__ . '/../../site', $this->base);
-        $this->files->copyDirectory(__DIR__ . '/../../includes', $this->base . '/includes');
+        $this->files->copyDirectory($this->sites . '/' . $name, $this->base);
+        $this->files->copyDirectory($this->sites . '/' . $name  . '/includes', $this->base . '/includes');
     }
 }

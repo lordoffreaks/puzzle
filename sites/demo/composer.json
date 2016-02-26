@@ -1,0 +1,12 @@
+{
+  "require": {
+    "lordoffreaks/puzzle": "0.3.*",
+    "swiftmailer/swiftmailer": "^5.4",
+    "voku/anti-xss": "^1.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Puzzle\\Demo\\": "src/"
+    }
+  }
+}

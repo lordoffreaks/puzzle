@@ -1,7 +1,5 @@
 .DS_Store
+.idea
 
-.idea/
-bower_components/
-/build_local/
-/node_modules/
 /vendor/
+composer.lock
