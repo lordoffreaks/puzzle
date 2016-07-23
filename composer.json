@@ -21,7 +21,8 @@
   "require": {
     "php": ">=5.4.0",
     "league/route": "^1.2",
-    "tightenco/jigsaw": "^0.6.4"
+    "tightenco/jigsaw": "^0.6.4",
+    "gettext/gettext": "^4.0"
   },
   "autoload": {
     "psr-4": {
