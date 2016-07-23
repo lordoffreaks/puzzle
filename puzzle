@@ -10,17 +10,17 @@ use Illuminate\View\Factory;
 use Illuminate\View\FileViewFinder;
 use Jigsaw\Jigsaw\Console\BuildCommand;
 use Jigsaw\Jigsaw\Filesystem;
-use Jigsaw\Jigsaw\Handlers\BladeHandler;
 use Jigsaw\Jigsaw\Handlers\DefaultHandler;
 use Jigsaw\Jigsaw\Jigsaw;
 
+use Puzzle\Handlers\BladeHandler;
 use Puzzle\Console\InitCommand;
 use Puzzle\Console\DemoCommand;
 
 if (file_exists(__DIR__.'/vendor/autoload.php')) {
     require __DIR__.'/vendor/autoload.php';
-} elseif(file_exists(dirname(dirname(__DIR__)) .'/vendor/autoload.php')) {
-    require dirname(dirname(__DIR__)) .'/vendor/autoload.php';
+} elseif (file_exists(__DIR__.'/../autoload.php')) {
+    require __DIR__.'/../autoload.php';
 } else {
     require __DIR__.'/../../autoload.php';
 }
