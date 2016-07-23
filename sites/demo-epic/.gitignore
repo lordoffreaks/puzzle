@@ -1,0 +1,7 @@
+/build_local/
+/node_modules/
+/vendor/
+.DS_Store
+.idea
+.tmp/
+bower_components/
