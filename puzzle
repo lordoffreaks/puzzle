@@ -54,7 +54,7 @@ $jigsaw->registerHandler($container[DefaultHandler::class]);
 
 $buildCommand = new BuildCommand($jigsaw, $sourcePath, $buildPath);
 
-$app = new Symfony\Component\Console\Application('Puzzle', '0.3.2');
+$app = new Symfony\Component\Console\Application('Puzzle', '0.3.3');
 $app->add($buildCommand);
 $app->add($container[InitCommand::class]);
 $app->run();

@@ -3,6 +3,10 @@
 namespace Puzzle\Route\Strategy;
 
 use League\Route\Strategy\RestfulStrategy;
+use ArrayObject;
+use League\Route\Http\Exception as HttpException;
+use RuntimeException;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class ContainerAwareRestfulStrategy extends RestfulStrategy
 {
