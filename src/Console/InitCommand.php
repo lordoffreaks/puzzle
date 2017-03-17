@@ -2,8 +2,8 @@
 
 namespace Puzzle\Console;
 
-use Jigsaw\Jigsaw\Filesystem;
-use Jigsaw\Jigsaw\Console\Command;
+use TightenCo\Jigsaw\Filesystem;
+use TightenCo\Jigsaw\Console\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;

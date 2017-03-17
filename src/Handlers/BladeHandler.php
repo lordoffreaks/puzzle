@@ -1,7 +1,7 @@
 <?php namespace Puzzle\Handlers;
 
 use Illuminate\Contracts\View\Factory;
-use Jigsaw\Jigsaw\ProcessedFile;
+use TightenCo\Jigsaw\ProcessedFile;
 use Gettext\GettextTranslator;
 
 class BladeHandler {
